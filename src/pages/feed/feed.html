@@ -1,5 +1,5 @@
 <!--
-  Generated template for the FeedPage page.
+  Generated template for the moviePage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -13,19 +13,23 @@
 </ion-header>
 
 <ion-content class="cards-bg">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="ios-arrow-down" pullingText="Atualizar">
+    </ion-refresher-content>
+  </ion-refresher>
 
-  <ion-card ion-item *ngFor="let feed of feeds">
+  <ion-card ion-item *ngFor="let movie of movies" (click)="movieDetailed(movie.id)">
 
-    <img src="https://image.tmdb.org/t/p/w500{{ feed.backdrop_path }}">
+    <img src="https://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}">
 
     <ion-card-content>
       <ion-card-title>
-        {{ feed.title }}
+        {{ movie.title }}
         <br/>
-        <small>{{ feed.original_title }}</small>
+        <small>{{ movie.original_title }}</small>
       </ion-card-title>
       <div class="content-wrap">
-        <p>{{ feed.overview }}</p>
+        <p>{{ movie.overview }}</p>
       </div>
     </ion-card-content>
 
@@ -33,17 +37,17 @@
       <ion-col>
         <button ion-button icon-left clear small color="secondary">
           <ion-icon name="thumbs-up"></ion-icon>
-          <div>{{ feed.vote_average }}</div>
+          <div>{{ movie.vote_average }}</div>
         </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-left clear small>
           <ion-icon name="md-calendar"></ion-icon>
-          <div>{{ feed.release_date }}</div>
+          <div>{{ movie.release_date }}</div>
         </button>
       </ion-col>
       <ion-col center text-center>
-        <ion-note *ngIf="feed.adult" style="color: red">
+        <ion-note *ngIf="movie.adult" style="color: red">
           Adult
         </ion-note>
       </ion-col>
