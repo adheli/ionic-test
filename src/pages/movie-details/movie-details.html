@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-  <ion-card ion-item>
+  <ion-card ion-item *ngIf="movie">
 
     <img src="https://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}">
 
