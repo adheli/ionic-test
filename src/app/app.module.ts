@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { MyApp } from './app.component';
 import { ContactPage } from '../pages/contact/contact';
@@ -43,6 +44,7 @@ import { SideMenuPageModule } from './../pages/side-menu/side-menu.module';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClient,
     ConfigurationProvider,
+    ScreenOrientation,
   ]
 })
 export class AppModule {}
